@@ -1,0 +1,105 @@
+{
+  "project_info": {
+    "project_number": "888731977079",
+    "project_id": "new--nc-mart2026",
+    "storage_bucket": "new--nc-mart2026.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:888731977079:android:ea4c534b4a59a923abcd72",
+        "android_client_info": {
+          "package_name": "com.ncmart.customer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "888731977079-onoksdlm1j2bugqdajamgog5khi6f2qf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ncmart.customer",
+            "certificate_hash": "7000240752485dbcb6fbf3bf519cbbca53afe7b9"
+          }
+        },
+        {
+          "client_id": "888731977079-5pemv0ag07b579feh8grjt1t72288pal.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDc26iMpNeWGE3Mfabf-ln-8ZQKIkZaeiE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "888731977079-5pemv0ag07b579feh8grjt1t72288pal.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:888731977079:android:3978e0e45ea84d34abcd72",
+        "android_client_info": {
+          "package_name": "com.ncmart.delivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "888731977079-5pemv0ag07b579feh8grjt1t72288pal.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDc26iMpNeWGE3Mfabf-ln-8ZQKIkZaeiE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "888731977079-5pemv0ag07b579feh8grjt1t72288pal.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:888731977079:android:0a34f6ff3d70a691abcd72",
+        "android_client_info": {
+          "package_name": "com.ncmart.vendor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "888731977079-5pemv0ag07b579feh8grjt1t72288pal.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDc26iMpNeWGE3Mfabf-ln-8ZQKIkZaeiE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "888731977079-5pemv0ag07b579feh8grjt1t72288pal.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
