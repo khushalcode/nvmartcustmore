@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: Build Web
+    name: Build APK, AAB & Web
     runs-on: ubuntu-latest
 
     defaults:
@@ -31,11 +31,56 @@ jobs:
           channel: stable
           cache: true
 
+      - name: Decode keystore
+        run: |
+          $bytes = [Convert]::FromBase64String("${{ secrets.KEYSTORE_BASE64 }}")
+          [IO.File]::WriteAllBytes("android/app/keystore.jks", $bytes)
+
+      - name: Create key.properties
+        run: |
+          $lines = @(
+            "storePassword=${{ secrets.STORE_PASSWORD }}",
+            "keyPassword=${{ secrets.KEY_PASSWORD }}",
+            "keyAlias=${{ secrets.KEY_ALIAS }}",
+            "storeFile=app/keystore.jks"
+          )
+          Set-Content -Path "android/key.properties" -Value $lines
+
+      - name: Decode google-services.json
+        run: |
+          $bytes = [Convert]::FromBase64String("${{ secrets.GOOGLE_SERVICES_JSON }}")
+          [IO.File]::WriteAllBytes("android/app/google-services.json", $bytes)
+
+      - name: Fix signingConfig to release
+        run: |
+          $file = "android/app/build.gradle.kts"
+          $content = Get-Content $file -Raw
+          $content = $content -replace 'signingConfigs\.getByName\("debug"\)', 'signingConfigs.getByName("release")'
+          Set-Content -Path $file -Value $content
+
       - name: Get Flutter packages
         run: flutter pub get
 
+      - name: Build Release APK
+        run: flutter build apk --release --no-tree-shake-icons
+
+      - name: Build Release AAB
+        run: flutter build appbundle --release --no-tree-shake-icons
+
       - name: Build Flutter Web
         run: flutter build web --release --no-tree-shake-icons
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: NC-Mart-release-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+
+      - name: Upload AAB
+        uses: actions/upload-artifact@v4
+        with:
+          name: NC-Mart-release-aab
+          path: build/app/outputs/bundle/release/app-release.aab
 
       - name: Upload Web Build
         uses: actions/upload-artifact@v4
