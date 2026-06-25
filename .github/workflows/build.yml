@@ -42,7 +42,7 @@ jobs:
             "storePassword=${{ secrets.STORE_PASSWORD }}",
             "keyPassword=${{ secrets.KEY_PASSWORD }}",
             "keyAlias=${{ secrets.KEY_ALIAS }}",
-            "storeFile=app/keystore.jks"
+            "storeFile=keystore.jks"
           )
           Set-Content -Path "android/key.properties" -Value $lines
 
@@ -87,3 +87,4 @@ jobs:
         with:
           name: NC-Mart-web
           path: build/web/
+
