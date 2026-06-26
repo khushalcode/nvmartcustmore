@@ -10,10 +10,6 @@ jobs:
     name: Build Web
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        shell: pwsh
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -23,8 +19,10 @@ jobs:
         with:
           flutter-version: 3.44.4
           channel: stable
-          cache: true
-          cache-key: flutter-3.44.4-stable
+          cache: false
+
+      - name: Verify Flutter version
+        run: flutter --version
 
       - name: Get Flutter packages
         run: flutter pub get
